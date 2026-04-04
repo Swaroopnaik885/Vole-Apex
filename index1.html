@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VELO — Premium Bikes</title>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="Js folder\GSAP.js"></script>
+    <script type="module" src="Js folder/Specs.js"></script>
+    <script type="module" src="Js folder/Cursor.js"></script>
+    <script type="module" src="Js folder/Models.js"></script>
+    <script type="module" src="Js folder/Feaatures.js"></script>
+    <script type="module" src="Js folder/Gallery-Mosaic.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/motion/10.16.2/motion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <!-- Loader -->
+    <!-- <div id="loader">
+      <div class="loader-logo">VELO</div>
+      <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+      <div class="loader-pct" id="loaderPct">000%</div>
+    </div> -->
+
+    <!-- Cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-trail"></div>
+
+    <!-- NavBar -->
+    <nav>
+      <div class="nav-logo">VELO</div>
+      <ul class="nav-links">
+        <li><a href="#sp-root">Specs</a></li>
+        <li><a href="#fs-root">Features</a></li>
+        <li><a href="#md-root">Models</a></li>
+        <li><a href="#gl-root">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="mx-auto w-full h-screen relative overflow-hidden flex flex-col lg:flex-row items-center justify-center">
+      <div class="hero-label">
+        <h1>VELO<br>APEX</h1>
+        <div class="sub">Drag to explore</div>
+      </div>
+      <!-- Canvas -->
+      <div class="canvas-wrapper" style="position:absolute;inset:0;">
+        <canvas id="frame" style="width:100%;height:100%;display:block;filter:contrast(120%) brightness(90%) saturate(80%);"></canvas>
+        <div id="sliderContainer">
+          <svg id="sliderSVG" viewBox="0 0 320 160" class="z-40">
+            <path id="curve"
+              d="M 40 120 Q 160 80 280 120"
+              stroke="white"
+              stroke-width="1.5"
+              fill="none"/>
+             <circle id="handle" r="8" fill="white" class="cursor-grab active:cursor-grabbing" />
+          </svg>
+          <div class="drag-hint">
+            <span class="drag-arrow">←</span>&nbsp; drag the handle
+          </div>
+        </div>
+      </div>
+      <!-- Hero Scroll Hint -->
+      <div class="hero-scroll-hint">
+        Scroll down
+      </div>
+    </section>
+
+    <!-- Specs Section -->
+    <div id="sp-root">
+      <div class="sp-grid-bg"></div>
+      <div class="sp-vignette"></div>
+      <!-- Specs Inner -->
+      <div class="sp-inner">
+        <!-- Specs Inner Left -->
+        <div class="sp-left">
+          <p class="sp-eyebrow">// Technical Data — APEX MK1</p>
+          <h2 class="sp-heading">Built for<br><em>Pure Speed.</em></h2>
+          <p class="sp-body">Every gram obsessed over. Every weld inspected under electron microscopy. Every angle optimised across 1,200 hours of computational fluid dynamics. The VELO Apex is not assembled — it is sculpted from aerospace alloys with a singular obsession: velocity.</p>
+          <div class="sp-divider"></div>
+          <div class="sp-meta">
+            <div class="sp-meta-item">
+              <span class="sp-meta-val">2025</span>
+              <span class="sp-meta-key">Model Year</span>
+            </div>
+            <div class="sp-meta-item">
+              <span class="sp-meta-val">MK I</span>
+              <span class="sp-meta-key">Generation</span>
+            </div>
+            <div class="sp-meta-item">
+              <span class="sp-meta-val">847</span>
+              <span class="sp-meta-key">Units</span>
+            </div>
+          </div>
+        </div>
+        <!-- Specs Inner Right -->
+        <div class="sp-right" id="spRight">
+          <!-- Specs Inner Right Card 1 -->
+          <div class="sp-card">
+            <div class="sp-card-scan"></div>
+            <div class="sp-card-bg-label">KG</div>
+            <div class="sp-card-corner"></div>
+            <div class="sp-card-bar"></div>
+            <div class="sp-card-inner">
+              <p class="sp-label">Total Weight</p>
+              <div class="sp-num-wrap">
+                <span class="sp-num" data-target="7.2" data-decimals="1">0.0</span>
+                <span class="sp-unit">kg</span>
+              </div>
+              <div class="sp-bar-track"><div class="sp-bar-fill" data-pct="72"></div></div>
+              <div class="sp-tick"><span>0</span><span>10kg</span></div>
+            </div>
+          </div>
+          <!-- Specs Inner Right Card 2 -->
+          <div class="sp-card">
+            <div class="sp-card-scan"></div>
+            <div class="sp-card-bg-label">NM</div>
+            <div class="sp-card-corner"></div>
+            <div class="sp-card-bar"></div>
+            <div class="sp-card-inner">
+              <p class="sp-label">Peak Torque</p>
+              <div class="sp-num-wrap">
+                <span class="sp-num" data-target="220" data-decimals="0">0</span>
+                <span class="sp-unit">Nm</span>
+              </div>
+              <div class="sp-bar-track"><div class="sp-bar-fill" data-pct="73"></div></div>
+              <div class="sp-tick"><span>0</span><span>300Nm</span></div>
+            </div>
+          </div>
+          <!-- Specs Inner Right Card 3 -->
+          <div class="sp-card">
+            <div class="sp-card-scan"></div>
+            <div class="sp-card-bg-label">CD</div>
+            <div class="sp-card-corner"></div>
+            <div class="sp-card-bar"></div>
+            <div class="sp-card-inner">
+              <p class="sp-label">Drag Coefficient</p>
+              <div class="sp-num-wrap">
+                <span class="sp-num" data-target="0.24" data-decimals="2">0.00</span>
+                <span class="sp-unit">Cd</span>
+              </div>
+              <div class="sp-bar-track"><div class="sp-bar-fill" data-pct="48"></div></div>
+              <div class="sp-tick"><span>0.20</span><span>0.30</span></div>
+            </div>
+          </div>
+          <!-- Specs Inner Right Card 4 -->
+          <div class="sp-card">
+            <div class="sp-card-scan"></div>
+            <div class="sp-card-bg-label">KW</div>
+            <div class="sp-card-corner"></div>
+            <div class="sp-card-bar"></div>
+            <div class="sp-card-inner">
+              <p class="sp-label">Peak Power</p>
+              <div class="sp-num-wrap">
+                <span class="sp-num" data-target="340" data-decimals="0">0</span>
+                <span class="sp-unit">kW</span>
+              </div>
+              <div class="sp-bar-track"><div class="sp-bar-fill" data-pct="85"></div></div>
+              <div class="sp-tick"><span>0</span><span>400kW</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="fs-root">
+      <canvas id="smoke-canvas"></canvas>
+      <div class="scanlines"></div>
+      <div class="neon-bar"></div>
+      <!-- Features Inner -->
+      <div class="fs-inner">
+        <p class="fs-eyebrow">APEX — 2025 REVEAL SERIES</p>
+        <h2 class="fs-title">BUILT<br>BEYOND<br><em>LIMITS</em></h2>
+        <div class="fs-grid" id="featureGrid">
+          <!-- Features Inner Card 1 -->
+          <div class="fs-card">
+            <div class="card-top-line"></div>
+            <span class="card-num">01</span>
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <p class="card-label">STRUCTURE</p>
+            <h3 class="card-title">Carbon<br>Monocoque</h3>
+            <p class="card-desc">Aerospace-grade carbon fibre chassis with integrated crumple zones and torsional rigidity far beyond conventional frames.</p>
+            <div class="card-bottom">
+              <span>EXPLORE</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <!-- Features Inner Card 2 -->
+          <div class="fs-card">
+            <div class="card-top-line"></div>
+            <span class="card-num">02</span>
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <p class="card-label">INTELLIGENCE</p>
+            <h3 class="card-title">Adaptive<br>Drive AI</h3>
+            <p class="card-desc">AI-powered torque vectoring that learns your riding style and road conditions in real time — sub-2ms reaction loop.</p>
+            <div class="card-bottom">
+              <span>EXPLORE</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <!-- Features Inner Card 3 -->
+          <div class="fs-card">
+            <div class="card-top-line"></div>
+            <span class="card-num">03</span>
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 111.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1111 8H2"/><path d="M12.6 19.4A2 2 0 1014 16H2"/></svg>
+            </div>
+            <p class="card-label">AERODYNAMICS</p>
+            <h3 class="card-title">Active<br>Aero Body</h3>
+            <p class="card-desc">Micro-adjustable spoiler elements shifting 40× per second, slicing drag by up to 18% at peak velocity.</p>
+            <div class="card-bottom">
+              <span>EXPLORE</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <!-- Features Inner Card 4 -->
+          <div class="fs-card">
+            <div class="card-top-line"></div>
+            <span class="card-num">04</span>
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="3"/></svg>
+            </div>
+            <p class="card-label">PERCEPTION</p>
+            <h3 class="card-title">LIDAR<br>Vision 360</h3>
+            <p class="card-desc">Solid-state LIDAR and thermal array providing total situational awareness in zero-visibility conditions.</p>
+            <div class="card-bottom">
+              <span>EXPLORE</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <!-- Features Inner Card 5 -->
+          <div class="fs-card">
+            <div class="card-top-line"></div>
+            <span class="card-num">05</span>
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            </div>
+            <p class="card-label">POWER</p>
+            <h3 class="card-title">Solid-State<br>Cell Array</h3>
+            <p class="card-desc">Next-gen solid-state batteries with 2× energy density and zero thermal runaway risk. 480km range, 12min charge.</p>
+            <div class="card-bottom">
+              <span>EXPLORE</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Features Footer -->
+        <div class="fs-footer">
+          <div class="fs-stat">
+            <span class="stat-num">480<small style="font-size:1rem;color:var(--rust)">km</small></span>
+            <span class="stat-label">Range per charge</span>
+          </div>
+          <div class="fs-divider"></div>
+          <div class="fs-stat">
+            <span class="stat-num">2.1<small style="font-size:1rem;color:var(--rust)">s</small></span>
+            <span class="stat-label">0–100 km/h</span>
+          </div>
+          <div class="fs-divider"></div>
+          <div class="fs-stat">
+            <span class="stat-num">340<small style="font-size:1rem;color:var(--rust)">kW</small></span>
+            <span class="stat-label">Peak output</span>
+          </div>
+          <div class="fs-divider"></div>
+          <button class="reveal-btn" onclick="sendPrompt('Tell me more about the APEX vehicle specs')">REQUEST FULL SPEC ↗</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Model Section -->
+    <div id="md-root">
+      <div class="md-noise"></div>
+      <div class="md-spotlight"></div>
+      <!-- Model Inner -->
+      <div class="md-inner">
+        <div class="md-header">
+          <div class="md-title-wrap">
+            <p class="md-eyebrow">// MODEL LINEUP — 2025</p>
+            <h2 class="md-title">CHOOSE<br><span>YOUR RIDE</span></h2>
+          </div>
+          <div class="md-right">
+            <div class="md-right-bar"></div>
+            <p>Three distinct characters.<br>One bloodline.</p>
+          </div>
+        </div>
+        <div class="md-grid">
+          <!-- Model Inner Card 1 -->
+          <div class="md-card">
+            <div class="md-card-film"></div>
+            <div class="md-card-lines"></div>
+            <div class="md-card-top-bar"></div>
+            <div class="md-card-corner tl"></div>
+            <div class="md-card-corner br"></div>
+            <div class="md-card-scan"></div>
+            <span class="md-card-num">01</span>
+            <div class="md-card-svg">
+              <img src="Images/Apex100.png" alt="">
+            </div>
+            <div class="md-card-content">
+              <p class="md-card-tag">Entry Series</p>
+              <h3 class="md-card-name">APEX 100</h3>
+              <p class="md-card-price">$4,299</p>
+              <div class="md-card-divider"></div>
+              <div class="md-card-cta">
+                <span class="md-cta-line"></span>
+                <span>Explore Model</span>
+              </div>
+            </div>
+          </div>
+          <!-- Model Inner Card 2 -->
+          <div class="md-card">
+            <div class="md-card-film"></div>
+            <div class="md-card-lines"></div>
+            <div class="md-card-top-bar"></div>
+            <div class="md-card-corner tl"></div>
+            <div class="md-card-corner br"></div>
+            <div class="md-card-scan"></div>
+            <span class="md-card-num">02</span>
+            <div class="md-card-svg">
+              <img src="Images/Apex300.png" alt="">
+            </div>
+            <div class="md-card-content">
+              <p class="md-card-tag">Pro Series</p>
+              <h3 class="md-card-name">APEX 300</h3>
+              <p class="md-card-price">$8,799</p>
+              <div class="md-card-divider"></div>
+              <div class="md-card-cta">
+                <span class="md-cta-line"></span>
+                <span>Explore Model</span>
+              </div>
+            </div>
+          </div>
+          <!-- Model Inner Card 3 -->
+          <div class="md-card">
+            <div class="md-card-film"></div>
+            <div class="md-card-lines"></div>
+            <div class="md-card-top-bar"></div>
+            <div class="md-card-corner tl"></div>
+            <div class="md-card-corner br"></div>
+            <div class="md-card-scan"></div>
+            <span class="md-card-num">03</span>
+            <div class="md-card-svg">
+              <img src="Images/ApexX.png" alt="">
+            </div>
+            <div class="md-card-content">
+              <p class="md-card-tag">Race Edition</p>
+              <h3 class="md-card-name">APEX X</h3>
+              <p class="md-card-price">$14,999</p>
+              <div class="md-card-divider"></div>
+              <div class="md-card-cta">
+                <span class="md-cta-line"></span>
+                <span>Explore Model</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Model Footer -->
+        <div class="md-footer">
+          <p class="md-footer-note">All models available Q2 2025 — Limited production run</p>
+          <button class="md-footer-btn" onclick="sendPrompt('Compare all three APEX models in detail')">COMPARE ALL MODELS ↗</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy">
+      <div class="philosophy-bg-text">
+        VELO&nbsp;VELO&nbsp;VELO&nbsp;VELO&nbsp;VELO&nbsp;VELO&nbsp;VELO&nbsp;VELO&nbsp;VELO&nbsp;
+      </div>
+      <div class="philosophy-content">
+        <div class="eyebrow">// Our Ethos</div>
+        <blockquote>
+          "The road does not forgive<br>hesitation — <em>neither do we.</em>"
+        </blockquote>
+        <div class="philosophy-rule"></div>
+        <cite>— VELO Design Manifesto, 2024</cite>
+      </div>
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="big">12<span class="unit">+</span></div>
+          <div class="desc">Years Racing</div>
+        </div>
+        <div class="stat-item">
+          <div class="big">340<span class="unit">+</span></div>
+          <div class="desc">Race Wins</div>
+        </div>
+        <div class="stat-item">
+          <div class="big">98<span class="unit">%</span></div>
+          <div class="desc">Customer Satisfaction</div>
+        </div>
+        <div class="stat-item">
+          <div class="big">6<span class="unit">x</span></div>
+          <div class="desc">World Championship</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="tech">
+      <div class="marquee-wrap">
+        <div class="marquee-inner">
+          <div class="marquee-item highlight">Carbon Monocoque</div>
+          <div class="dot"></div>
+          <div class="marquee-item">Solid-State Battery</div>
+          <div class="dot"></div>
+          <div class="marquee-item highlight">LIDAR Vision</div>
+          <div class="dot"></div>
+          <div class="marquee-item">Active Aero</div>
+          <div class="dot"></div>
+          <div class="marquee-item highlight">AI Torque Vectoring</div>
+          <div class="dot"></div>
+          <div class="marquee-item">Regenerative Braking</div>
+          <div class="dot"></div>
+          <div class="marquee-item highlight">Wind-Tunnel Tested</div>
+          <div class="dot"></div>
+          <div class="marquee-item">Titanium Hardware</div>
+          <div class="dot"></div>
+
+          <div class="marquee-item highlight">Carbon Monocoque</div>
+          <div class="dot"></div>
+          <div class="marquee-item">Solid-State Battery</div>
+          <div class="dot"></div>
+          <div class="marquee-item highlight">LIDAR Vision</div>
+          <div class="dot"></div>
+          <div class="marquee-item">Active Aero</div>
+          <div class="dot"></div>
+          <div class="marquee-item highlight">AI Torque Vectoring</div>
+          <div class="dot"></div>
+          <div class="marquee-item">Regenerative Braking</div>
+          <div class="dot"></div>
+          <div class="marquee-item highlight">Wind-Tunnel Tested</div>
+          <div class="dot"></div>
+          <div class="marquee-item">Titanium Hardware</div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <div id="gl-root">
+      <div class="gl-inner">
+        <!-- Gallery Header -->
+        <div class="gl-header">
+          <h2 class="gl-title">
+            RACE.<br>
+            <span class="outline">DREAM.</span><br>
+            <span class="rust-out">RIDE.</span>
+          </h2>
+          <div class="gl-header-right">
+            <p class="gl-eyebrow">// Visual Archive — APEX MK1</p>
+            <p>Every frame captured at the intersection of obsession and machine. Six moments. One relentless pursuit of velocity.</p>
+            <div class="gl-counter-row">
+              <div class="gl-count-item">
+                <span class="gl-count-num">6</span>
+                <span class="gl-count-label">Captures</span>
+              </div>
+              <div class="gl-count-item">
+                <span class="gl-count-num">3</span>
+                <span class="gl-count-label">Models</span>
+              </div>
+              <div class="gl-count-item">
+                <span class="gl-count-num">847</span>
+                <span class="gl-count-label">Units made</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Mosaic -->
+        <div class="gl-mosaic" id="glMosaic">
+          <!-- Gallery Cell 1 -->
+          <div class="gl-cell">
+            <div class="gl-cell-bg"></div>
+            <div class="gl-cell-art">
+              <img src="Images/GM1.png" alt="">
+            </div>
+            <div class="gl-cell-grain"></div>
+            <div class="gl-cell-rust-wash"></div>
+            <div class="gl-cell-scan"></div>
+            <div class="gl-cell-top-bar"></div>
+            <div class="gl-cell-corner tl"></div>
+            <div class="gl-cell-corner br"></div>
+            <span class="gl-cell-num">01</span>
+            <div class="gl-caption">
+              <p class="gl-caption-tag">APEX 300 — Pro Series</p>
+              <p class="gl-caption-title">Track Day<br>Qualifying Run</p>
+            </div>
+          </div>
+          <!-- Gallery Cell 2 -->
+          <div class="gl-cell">
+            <div class="gl-cell-bg"></div>
+            <div class="gl-cell-art">
+              <img src="Images/GM2.png" alt="">
+            </div>
+            <div class="gl-cell-grain"></div>
+            <div class="gl-cell-rust-wash"></div>
+            <div class="gl-cell-scan"></div>
+            <div class="gl-cell-top-bar"></div>
+            <div class="gl-cell-corner tl"></div>
+            <div class="gl-cell-corner br"></div>
+            <span class="gl-cell-num">02</span>
+            <div class="gl-caption">
+              <p class="gl-caption-tag">Detail — Material Science</p>
+              <p class="gl-caption-title">Carbon Weave<br>Structure</p>
+            </div>
+          </div>
+          <!-- Gallery Cell 3 -->
+          <div class="gl-cell">
+            <div class="gl-cell-bg"></div>
+            <div class="gl-cell-art">
+              <img src="Images/GM3.png" alt="">
+            </div>
+            <div class="gl-cell-grain"></div>
+            <div class="gl-cell-rust-wash"></div>
+            <div class="gl-cell-scan"></div>
+            <div class="gl-cell-top-bar"></div>
+            <div class="gl-cell-corner tl"></div>
+            <div class="gl-cell-corner br"></div>
+            <span class="gl-cell-num">03</span>
+            <div class="gl-caption">
+              <p class="gl-caption-tag">APEX X — Race Edition</p>
+              <p class="gl-caption-title">Race Start<br>Grid Position 1</p>
+            </div>
+          </div>
+          <!-- Gallery Cell 4 -->
+          <div class="gl-cell">
+            <div class="gl-cell-bg"></div>
+            <div class="gl-cell-art">
+              <img src="Images/GM4.png" alt="">
+            </div>
+            <div class="gl-cell-grain"></div>
+            <div class="gl-cell-rust-wash"></div>
+            <div class="gl-cell-scan"></div>
+            <div class="gl-cell-top-bar"></div>
+            <div class="gl-cell-corner tl"></div>
+            <div class="gl-cell-corner br"></div>
+            <span class="gl-cell-num">04</span>
+            <div class="gl-caption">
+              <p class="gl-caption-tag">Engineering — Power Cell</p>
+              <p class="gl-caption-title">Solid-State<br>Battery Assembly</p>
+            </div>
+          </div>
+          <!-- Gallery Cell 5 -->
+          <div class="gl-cell">
+            <div class="gl-cell-bg"></div>
+            <div class="gl-cell-art">
+              <img src="Images/GM5.png" alt="">
+            </div>
+            <div class="gl-cell-grain"></div>
+            <div class="gl-cell-rust-wash"></div>
+            <div class="gl-cell-scan"></div>
+            <div class="gl-cell-top-bar"></div>
+            <div class="gl-cell-corner tl"></div>
+            <div class="gl-cell-corner br"></div>
+            <span class="gl-cell-num">05</span>
+            <div class="gl-caption">
+              <p class="gl-caption-tag">APEX 100 — Entry Series</p>
+              <p class="gl-caption-title">Open Road<br>Coastal Run</p>
+            </div>
+          </div>
+          <!-- Gallery Cell 6 -->
+          <div class="gl-cell">
+            <div class="gl-cell-bg"></div>
+            <div class="gl-cell-art">
+              <img src="Images/GM6.png" alt="">
+            </div>
+            <div class="gl-cell-grain"></div>
+            <div class="gl-cell-rust-wash"></div>
+            <div class="gl-cell-scan"></div>
+            <div class="gl-cell-top-bar"></div>
+            <div class="gl-cell-corner tl"></div>
+            <div class="gl-cell-corner br"></div>
+            <span class="gl-cell-num">06</span>
+            <div class="gl-caption">
+              <p class="gl-caption-tag">APEX X — Night Mode</p>
+              <p class="gl-caption-title">LIDAR Vision<br>360° Active</p>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Footer -->
+        <div class="gl-footer">
+          <p class="gl-footer-note">All imagery — APEX Studio, 2025</p>
+          <button class="gl-btn" onclick="sendPrompt('Tell me more about the APEX X race edition')">VIEW FULL GALLERY ↗</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="contact-noise"></div>
+      <div class="contact-eyebrow">// Ready to Ride</div>
+      <div class="contact-headline">
+        Let's get<br>you on a<br><span>VELO.</span>
+      </div>
+      <a href="#" class="cta-btn">
+        <span>Configure Your Apex</span>
+      </a>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-logo">VELO</div>
+      <ul class="footer-links">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Dealers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+      <div class="footer-copy">© 2024 VELO Precision Ltd.</div>
+    </footer>
+
+  </body>
+</html>
