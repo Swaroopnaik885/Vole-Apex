@@ -6,7 +6,7 @@ let imagesLoaded = 0;
 const images = [];
 
 const firstImage = new Image();
-firstImage.src = `Frames/frame_0000.jpg`;
+firstImage.src = `Frames/frame_0000.webp`;
 firstImage.onload = () => {
   images[0] = firstImage;
   loadImage(0);
@@ -14,7 +14,7 @@ firstImage.onload = () => {
 
 function preloadImages() {
   for (let i = 0; i <= frames.maxIndex; i++) {
-    const imageUrl = `Frames/frame_${i.toString().padStart(4, "0")}.jpg`;
+    const imageUrl = `Frames/frame_${i.toString().padStart(4, "0")}.webp`;
     const img = new Image();
     img.src = imageUrl;
     img.onload = () => {
