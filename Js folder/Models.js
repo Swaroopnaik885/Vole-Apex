@@ -17,11 +17,11 @@
 
       cards.forEach(card => {
         card.addEventListener('mouseenter', () => {
-          animate(card.querySelector('.md-card-svg svg'), { y: [0, -10] }, { duration: 0.5, easing: 'ease-out' });
+          animate(card.querySelector('.md-card-svg img'), { y: [0, -10] }, { duration: 0.5, easing: 'ease-out' });
           animate(card.querySelector('.md-card-name'), { letterSpacing: ['0.06em', '0.1em'] }, { duration: 0.35, easing: 'ease-out' });
         });
         card.addEventListener('mouseleave', () => {
-          animate(card.querySelector('.md-card-svg svg'), { y: [-10, 0] }, { duration: 0.5, easing: 'ease-out' });
+          animate(card.querySelector('.md-card-svg img'), { y: [-10, 0] }, { duration: 0.5, easing: 'ease-out' });
           animate(card.querySelector('.md-card-name'), { letterSpacing: ['0.1em', '0.06em'] }, { duration: 0.35, easing: 'ease-out' });
         });
       });
@@ -44,5 +44,4 @@
   }, { threshold: 0.1 });
 
   obs.observe(root);
-  setTimeout(init, 200);
 })();

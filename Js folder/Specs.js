@@ -69,5 +69,4 @@
   }, { threshold: 0.15 });
 
   observer.observe(root);
-  setTimeout(initAnimations, 300);
 })();
