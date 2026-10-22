@@ -8,7 +8,7 @@ const slider = document.querySelector("#sliderContainer");
 
 const LAST = 160;            // last frame index (161 frames)
 const AUTOPLAY_AT = 0.3;     // drag progress that triggers auto-play
-const RUN_MS = 1000;         // full-sequence play time, independent of device speed
+const RUN_MS = 5000;         // full-sequence play time, independent of device speed
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const pathLength = path.getTotalLength();
 

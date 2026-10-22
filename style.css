@@ -100,12 +100,16 @@ nav {
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: -3px; left: 0;
-  width: 0; height: 1px;
+  bottom: -3px; 
+  left: 0;
+  width: 0; 
+  height: 2.5px;
   background: var(--rust);
   transition: width 0.3s ease;
 }
-.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover::after { 
+  width: 100%; 
+}
 
 @media (max-width: 768px) {
   nav {
@@ -1956,22 +1960,22 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 .loader-bar-wrap {
-  width: 200px; height: 1px;
+  width: 200px; height: 2px;
   background: rgba(240,235,224,0.1);
   overflow: hidden;
 }
 .loader-bar {
   height: 100%;
   background: var(--rust);
-  animation: loaderGrow 5s ease forwards;
+  animation: loaderGrow 1s ease forwards;
 }
 @keyframes loaderGrow {
   from { width: 0; }
   to { width: 100%; }
 }
 .loader-pct {
-  font-size: 0.6rem;
+  font-size: 1rem;
   letter-spacing: 0.4em;
-  color: rgba(240,235,224,0.3);
+  color: rgba(240,235,224,0.75);
   font-variant-numeric: tabular-nums;
 }
