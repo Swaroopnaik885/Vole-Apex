@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400&display=swap');
 
 :root {
-    --cream: #f0ebe0;
+    --cream: #ffffff;
     --carbon: #0a0a0a;
     --rust: #c94a1e;
     --steel: #8a9ba8;
@@ -9,13 +9,19 @@
     --smoke: #1e1e1e;
     --neon: #E0F0FF;
     --fog: rgba(255,255,255,0.04);
-    --dim: rgba(240,235,224,0.38);
+    --dim: rgba(240,235,224,0.75);
     --line: rgba(255,255,255,0.06);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  scroll-behavior: smooth;
+}
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+}
 
 body {
   background: var(--carbon);
@@ -73,7 +79,7 @@ nav {
 }
 .nav-logo {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   letter-spacing: 0.15em;
   color: var(--cream);
 }
@@ -84,7 +90,7 @@ nav {
 }
 .nav-links a {
   font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 1rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--cream);
@@ -157,12 +163,13 @@ section {
   font-size: clamp(5rem, 12vw, 12rem);
   line-height: 0.9;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.75);
   letter-spacing: 0.02em;
 }
 .hero-label .sub {
-  font-size: 0.7rem;
-  letter-spacing: 0.4em;
+  font-size: 0.8rem;
+  letter-spacing: 0.5em;
+  font-weight: 700;
   text-transform: uppercase;
   color: var(--rust);
   margin-top: 20px;
@@ -183,7 +190,7 @@ section {
   font-size: 0.65rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(240,235,224,0.4);
+  color: rgba(240,235,224,0.75);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -199,7 +206,7 @@ section {
     font-size: clamp(2.5rem, 8vw, 5rem);
   }
   .hero-label .sub {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     gap: 8px;
   }
   .hero-label .sub::before {
@@ -258,7 +265,7 @@ section {
 }
 #sliderSVG {
   position: absolute;
-  top: 90%;
+  top: 92.5%;
   left: 50%;
   transform: translate(-50%, -90%);
   filter: drop-shadow(0 0 20px rgba(201,74,30,0.4));
@@ -293,14 +300,15 @@ section {
   bottom: 140px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(240,235,224,0.4);
+  color: rgba(240,235,224,0.75);
   pointer-events: none;
   white-space: nowrap;
 }
 .drag-arrow {
+  font-size: 1rem;
   display: inline-block;
   animation: nudge 1.5s ease-in-out infinite;
 }
@@ -376,9 +384,12 @@ section {
   opacity: 0;
   transition: opacity 0.8s 0.6s;
 }
-.sp-loaded .sp-left::after { opacity: 1; }
+.sp-loaded .sp-left::after { 
+  opacity: 1; 
+}
 .sp-eyebrow {
-  font-size: 9px;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.45em;
   color: var(--rust);
   text-transform: uppercase;
@@ -387,7 +398,10 @@ section {
   transform: translateX(-16px);
   transition: opacity 0.6s, transform 0.6s;
 }
-.sp-loaded .sp-eyebrow { opacity: 1; transform: translateX(0); }
+.sp-loaded .sp-eyebrow { 
+  opacity: 1; 
+  transform: translateX(0); 
+}
 .sp-heading {
   font-family: 'DM Serif Display', serif;
   font-size: clamp(3rem, 5vw, 5.5rem);
@@ -398,14 +412,17 @@ section {
   transform: translateX(-20px);
   transition: opacity 0.7s 0.1s, transform 0.7s 0.1s;
 }
-.sp-loaded .sp-heading { opacity: 1; transform: translateX(0); }
+.sp-loaded .sp-heading { 
+  opacity: 1; 
+  transform: translateX(0); 
+}
 .sp-heading em {
   font-style: italic;
   color: transparent;
   -webkit-text-stroke: 1.5px var(--rust);
 }
 .sp-body {
-  font-size: 11px;
+  font-size: 12.5px;
   line-height: 2;
   color: var(--dim);
   max-width: 380px;
@@ -540,13 +557,13 @@ section {
 .sp-label {
   font-size: 8px;
   letter-spacing: 0.38em;
-  color: rgba(240,235,224,0.3);
+  color: rgba(240,235,224,0.75);
   text-transform: uppercase;
   margin-bottom: 6px;
 }
 .sp-bar-track {
   width: 100%;
-  height: 1px;
+  height: 2px;
   background: rgba(255,255,255,0.06);
   position: relative;
   margin-top: 18px;
@@ -641,7 +658,7 @@ canvas#smoke-canvas {
 .fs-eyebrow {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
-  font-weight: 300;
+  font-weight: 700;
   letter-spacing: 0.4em;
   color: var(--rust);
   text-transform: uppercase;
@@ -737,9 +754,9 @@ canvas#smoke-canvas {
 }
 .fs-card:hover .card-icon-wrap svg { stroke: var(--rust); }
 .card-label {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.35em;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.5);
   text-transform: uppercase;
   margin-bottom: 10px;
   transition: color 0.3s;
@@ -807,9 +824,9 @@ canvas#smoke-canvas {
   letter-spacing: 0.05em;
 }
 .stat-label {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.3em;
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.75);
   text-transform: uppercase;
 }
 .fs-divider {
@@ -819,10 +836,11 @@ canvas#smoke-canvas {
 }
 .reveal-btn {
   background: transparent;
-  border: 1px solid rgba(200,68,26,0.5);
+  border: 2px solid rgba(200,68,26,0.5);
   color: var(--rust);
   font-family: 'DM Mono', monospace;
   font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   padding: 14px 32px;
@@ -923,7 +941,8 @@ canvas#smoke-canvas {
 }
 .md-title-wrap { overflow: hidden; }
 .md-eyebrow {
-    font-size: 9px;
+    font-size: 10px;
+    font-weight: 700;
     letter-spacing: 0.45em;
     color: var(--rust);
     text-transform: uppercase;
@@ -932,7 +951,10 @@ canvas#smoke-canvas {
     transform: translateY(10px);
     transition: opacity 0.5s, transform 0.5s;
 }
-.md-loaded .md-eyebrow { opacity: 1; transform: translateY(0); }
+.md-loaded .md-eyebrow { 
+  opacity: 1; 
+  transform: translateY(0); 
+}
 .md-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(4.5rem, 9vw, 9rem);
@@ -947,7 +969,7 @@ canvas#smoke-canvas {
 .md-title span {
     display: block;
     color: transparent;
-    -webkit-text-stroke: 1.5px rgba(240,235,224,0.18);
+    -webkit-text-stroke: 2px rgba(240,235,224,0.5);
 }
 .md-right {
     text-align: right;
@@ -1044,7 +1066,7 @@ canvas#smoke-canvas {
     align-items: center;
     justify-content: center;
     z-index: 3;
-    opacity: 0.06;
+    opacity: 0.25;
     transition: opacity 0.5s, transform 0.5s;
 }
 .md-card:hover .md-card-svg { opacity: 0.9; transform: scale(1.06) translateY(-8px); }
@@ -1083,7 +1105,8 @@ canvas#smoke-canvas {
     background: linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.6) 60%, transparent 100%);
 }
 .md-card-tag {
-    font-size: 8px;
+    font-size: 10px;
+    font-weight: 700;
     letter-spacing: 0.38em;
     text-transform: uppercase;
     color: var(--rust);
@@ -1176,14 +1199,13 @@ canvas#smoke-canvas {
 }
 .md-footer-btn {
     background: transparent;
-    border: 1px solid rgba(200,68,26,0.35);
+    border: 2px solid rgba(200,68,26,0.5);
     color: var(--rust);
     font-family: 'DM Mono', monospace;
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     padding: 12px 28px;
-     
     position: relative;
     overflow: hidden;
     transition: color 0.3s;
@@ -1263,7 +1285,8 @@ canvas#smoke-canvas {
   max-width: 900px;
 }
 .philosophy-content .eyebrow {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
   letter-spacing: 0.5em;
   text-transform: uppercase;
   color: var(--rust);
@@ -1283,10 +1306,10 @@ canvas#smoke-canvas {
   margin: 0 auto 24px;
 }
 .philosophy-content cite {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(240,235,224,0.4);
+  color: rgba(240,235,224,0.5);
   font-style: normal;
 }
 /* stats row */
@@ -1380,7 +1403,7 @@ canvas#smoke-canvas {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2.2rem;
   letter-spacing: 0.1em;
-  color: rgba(10,10,10,0.25);
+  color: rgb(255, 255, 255);
   white-space: nowrap;
 }
 .marquee-item.highlight { color: var(--carbon); }
@@ -1463,18 +1486,23 @@ canvas#smoke-canvas {
   transition: opacity 0.7s 0.2s, transform 0.7s 0.2s;
   padding-bottom: 8px;
 }
-.gl-loaded .gl-header-right { opacity: 1; transform: translateX(0); }
+.gl-loaded .gl-header-right { 
+  opacity: 1; 
+  transform: translateX(0); 
+}
 .gl-eyebrow {
-  font-size: 8px;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.4em;
-  color: var(--rust);
+  color: var(--carbon);
   text-transform: uppercase;
   margin-bottom: 14px;
 }
 .gl-header-right p {
   font-size: 10px;
+  font-weight: 700;
   line-height: 2;
-  color: rgba(8,8,8,0.4);
+  color: rgba(8,8,8,0.75);
   max-width: 280px;
   letter-spacing: 0.05em;
 }
@@ -1494,9 +1522,10 @@ canvas#smoke-canvas {
   line-height: 1;
 }
 .gl-count-label {
-  font-size: 7px;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.3em;
-  color: rgba(8,8,8,0.3);
+  color: rgba(8,8,8,0.75);
   text-transform: uppercase;
 }
 .gl-mosaic {
@@ -1509,7 +1538,6 @@ canvas#smoke-canvas {
   position: relative;
   overflow: hidden;
   background: var(--carbon);
-   
   opacity: 0;
   transform: scale(0.96);
 }
@@ -1612,14 +1640,16 @@ canvas#smoke-canvas {
   position: absolute;
   top: 14px; right: 18px;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 4.5rem;
+  font-size: 4rem;
   line-height: 1;
-  color: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.5);
   z-index: 5;
   pointer-events: none;
   transition: color 0.5s;
 }
-.gl-cell:hover .gl-cell-num { color: rgba(200,68,26,0.07); }
+.gl-cell:hover .gl-cell-num { 
+  color: rgba(200,68,26,0.07); 
+}
 .gl-caption {
   position: absolute;
   bottom: 0; left: 0; right: 0;
@@ -1631,7 +1661,8 @@ canvas#smoke-canvas {
 }
 .gl-cell:hover .gl-caption { transform: translateY(0); }
 .gl-caption-tag {
-  font-size: 7px;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.38em;
   text-transform: uppercase;
   color: var(--rust);
@@ -1639,7 +1670,7 @@ canvas#smoke-canvas {
 }
 .gl-caption-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   letter-spacing: 0.1em;
   color: var(--cream);
   line-height: 1.1;
@@ -1661,14 +1692,14 @@ canvas#smoke-canvas {
 }
 .gl-btn {
   background: transparent;
-  border: 1px solid rgba(200,68,26,0.4);
+  border: 2px solid rgba(200,68,26,0.75);
   color: var(--rust);
   font-family: 'DM Mono', monospace;
-  font-size: 8px;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   padding: 12px 26px;
-   
   position: relative;
   overflow: hidden;
   transition: color 0.3s;
@@ -1747,7 +1778,8 @@ canvas#smoke-canvas {
   pointer-events: none;
 }
 .contact-eyebrow {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
   letter-spacing: 0.5em;
   text-transform: uppercase;
   color: var(--rust);
@@ -1767,10 +1799,11 @@ canvas#smoke-canvas {
   align-items: center;
   gap: 16px;
   padding: 22px 52px;
-  border: 1px solid rgba(240,235,224,0.2);
+  border: 2px solid rgba(240,235,224,0.2);
   color: var(--cream);
   font-family: 'Space Mono', monospace;
   font-size: 0.75rem;
+  font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   text-decoration: none;
@@ -1844,6 +1877,7 @@ footer {
 }
 .footer-copy {
   font-size: 0.65rem;
+  font-weight: 600;
   letter-spacing: 0.2em;
   color: rgba(240,235,224,0.25);
 }
@@ -1854,10 +1888,11 @@ footer {
   flex-wrap: wrap;
 }
 .footer-links a {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(240,235,224,0.35);
+  color: rgba(240,235,224,0.5);
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -1870,7 +1905,7 @@ footer {
     text-align: center;
   }
   .footer-logo {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   .footer-links {
     gap: 16px;
